@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avinesh Dhal — B.Tech CSE Student | Web, IoT &amp; Data</title>
+  <meta name="description" content="Portfolio of Avinesh Dhal — Computer Science engineering student at LPU, building with Web, IoT, and Data. Projects in embedded systems, full-stack development, and AI/ML.">
+  <meta name="author" content="Avinesh Dhal">
+  <meta name="theme-color" content="#0b0a1a">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Starfield canvas -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-inner">
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="#about" aria-label="About" title="About">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#skills" aria-label="Skills" title="Skills">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#projects" aria-label="Projects" title="Projects">
+              <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#certifications" aria-label="Certifications" title="Certifications">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#experience" aria-label="Experience" title="Experience">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#education" aria-label="Education" title="Education">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </a>
+          </li>
+        </ul>
+        <a href="#" id="open-resume-btn" class="nav-resume-btn" aria-label="Resume">
+          resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-overlay" id="nav-overlay"></div>
+  </nav>
+
+  <!-- Dynamic Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-content fade-in">
+      <h1 class="hero-greeting">Hey There!</h1>
+      <h2 class="hero-title">I'm Avinesh, a <i>B.Tech CSE Student</i><br>Based in Punjab, India</h2>
+
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section id="about" class="about-grid-section">
+    <div class="container about-deal-container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <h2>ABOUT</h2>
+        </div>
+      </div>
+      <div class="about-deal-wrapper fade-in">
+        
+        <div class="about-deal-text">
+          <p class="about-deal-supertitle">BEYOND THE CODE</p>
+          <h2 class="about-deal-title">What do I<br>build?</h2>
+          
+          <div class="about-deal-desc">
+            <p>
+              I’m a CS undergraduate who enjoys writing code, solving problems, and experimenting with new technologies. From DSA and C++ to full-stack development, I’m constantly working on projects that challenge me to think better and build smarter.
+            </p>
+          </div>
+          
+          <ul class="about-deal-list">
+            <li>
+              <div class="check-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span>code that solves real problems</span>
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span>curiosity-driven learning</span>
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span>projects over just theory</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="about-deal-photo-col">
+          <div class="photo-layers-container">
+            <div class="paper-layer layer-1"></div>
+            <div class="paper-layer layer-2"></div>
+            <div class="polaroid-frame">
+              <svg class="paperclip" viewBox="0 0 24 24" fill="none" stroke="#2a2a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.85 20.35l7.55-7.55a5 5 0 0 0-7.07-7.07l-9.19 9.2a3 3 0 0 0 4.24 4.24l9.19-9.19a1 1 0 0 0-1.41-1.41l-9.2 9.19"></path>
+              </svg>
+              <img src="profile.jpg" alt="Avinesh" class="polaroid-photo">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS
+       ============================================================ -->
+  <section id="skills">
+    <div class="container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          <h2>SKILLS & TOOLS</h2>
+        </div>
+      </div>
+      <p class="section-subtitle fade-in">Technologies I work with</p>
+      <div class="skills-grid stagger-children">
+
+        <!-- Card 1: Core Programming Languages -->
+        <div class="glass-card skill-category fade-in">
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            Core Programming Languages
+          </h3>
+          <p class="skill-desc">The foundational languages I use for data structures, backend logic, and scripting.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">HTML5 &amp; CSS</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Data Science -->
+        <div class="glass-card skill-category fade-in">
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            Data Science
+          </h3>
+          <p class="skill-desc">Data analysis and machine learning techniques for extracting insights and building data-driven solutions.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Pandas &amp; NumPy</span>
+            <span class="skill-tag">Data Visualization</span>
+          </div>
+        </div>
+
+        <!-- Card 3: IoT & Hardware -->
+        <div class="glass-card skill-category fade-in">
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="12" x2="2" y2="12"></line><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path><line x1="6" y1="16" x2="6.01" y2="16"></line><line x1="10" y1="16" x2="10.01" y2="16"></line></svg>
+            IoT &amp; Hardware
+          </h3>
+          <p class="skill-desc">Building embedded systems and interfacing with hardware for real-world applications.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">ESP32</span>
+            <span class="skill-tag">Raspberry Pi</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Sensors</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Tools & Workflow -->
+        <div class="glass-card skill-category fade-in">
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            Tools &amp; Workflow
+          </h3>
+          <p class="skill-desc">The essential tools and platforms I use to build, test, and deploy applications.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS
+       ============================================================ -->
+  <section id="projects">
+    <div class="container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          <h2>FEATURED PROJECTS</h2>
+        </div>
+      </div>
+      <p class="section-subtitle fade-in">Things I've built</p>
+      <div class="projects-grid stagger-children">
+
+        <!-- Project 1 -->
+        <div class="glass-card project-card fade-in">
+          <div class="project-header">
+            <h3 class="project-title">Smart Weather &amp; Soil Monitoring System</h3>
+            <span class="project-date">Sep – Nov 2025</span>
+          </div>
+          <div class="project-tags">
+            <span>ESP32</span>
+            <span>C++</span>
+            <span>IoT</span>
+            <span>Sensors</span>
+          </div>
+          <ul class="project-highlights">
+            <li>Autonomous IoT environmental monitoring station using an ESP32 microcontroller with custom C++ firmware</li>
+            <li>Multi-sensor telemetry — soil moisture, temperature, sunlight intensity — with calibrated ADC &amp; I2C interfacing at &lt;50ms latency</li>
+            <li>Wi-Fi telemetry over MQTT/HTTP with local failover buffering for real-time micro-climate tracking</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Avinesh9" class="project-link" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card project-card fade-in">
+          <div class="project-header">
+            <h3 class="project-title">Personal Developer Portfolio Platform</h3>
+            <span class="project-date">Jun – Aug 2026</span>
+          </div>
+          <div class="project-tags">
+            <span>JavaScript ES6+</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Vercel</span>
+          </div>
+          <ul class="project-highlights">
+            <li>Fully responsive personal web portfolio achieving 100% Google Lighthouse performance &amp; accessibility score</li>
+            <li>Dynamic 5-color theme engine with CSS custom properties and localStorage persistence</li>
+            <li>Glassmorphism UI with validated contact form, client-side sanitization, and CI/CD via Vercel</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Avinesh9" class="project-link" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card project-card fade-in">
+          <div class="project-header">
+            <h3 class="project-title">Skateboard Obstacle-Reaction Game</h3>
+            <span class="project-date">2026</span>
+          </div>
+          <span class="project-badge">🚧 Currently Building</span>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML5 Canvas</span>
+            <span>Antigravity AI</span>
+          </div>
+          <ul class="project-highlights">
+            <li>2D obstacle-reaction game built with Antigravity AI</li>
+            <li>Real-time collision detection and dynamic difficulty scaling</li>
+            <li>In active development — stay tuned for the live demo</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Avinesh9" class="project-link" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CERTIFICATIONS
+       ============================================================ -->
+  <section id="certifications">
+    <div class="container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          <h2>CERTIFICATIONS</h2>
+        </div>
+      </div>
+      <div class="certs-grid stagger-children">
+
+        <div class="glass-card cert-card fade-in">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-info">
+            <h4>Build Storm: 12-Hour Hackathon</h4>
+            <span class="cert-provider">Play2Unite</span>
+            <span class="cert-date">Oct 2025</span>
+          </div>
+        </div>
+
+        <div class="glass-card cert-card fade-in">
+          <div class="cert-icon">☁️</div>
+          <div class="cert-info">
+            <h4>Cloud Computing and Its Applications</h4>
+            <span class="cert-provider">Coursera</span>
+            <span class="cert-date">Jul 2026</span>
+          </div>
+        </div>
+
+        <div class="glass-card cert-card fade-in">
+          <div class="cert-icon">🤖</div>
+          <div class="cert-info">
+            <h4>Introduction to AI (30-hr MOOC)</h4>
+            <span class="cert-provider">Infosys Springboard</span>
+            <span class="cert-date">Feb 2026</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPERIENCE & EXTRACURRICULAR
+       ============================================================ -->
+  <section id="experience">
+    <div class="container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <h2>EXPERIENCE & ACTIVITIES</h2>
+        </div>
+      </div>
+      <div class="timeline fade-in">
+
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 2025 – Sep 2025</span>
+          <h3 class="timeline-title">Marketing Intern</h3>
+          <p class="timeline-org">Corizo Edutech Pvt. Ltd.</p>
+          <p class="timeline-desc">
+            Gained practical exposure to marketing workflows and professional collaboration. Developed communication, teamwork, and workplace discipline through hands-on internship tasks.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 2025 – Dec 2025</span>
+          <h3 class="timeline-title">Student Career Committee</h3>
+          <p class="timeline-org">Event Management Team, LPU</p>
+          <p class="timeline-desc">
+            Helped coordinate and execute 5+ college events including Techfluence 4.0, Techfluence 5.0, and Mehfil-e-Mushaira. Built skills in event logistics, leadership, and team management.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EDUCATION
+       ============================================================ -->
+  <section id="education">
+    <div class="container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          <h2>EDUCATION</h2>
+        </div>
+      </div>
+      <div class="education-grid stagger-children">
+
+        <div class="glass-card edu-card fade-in">
+          <p class="edu-degree">B.Tech — Computer Science &amp; Engineering</p>
+          <p class="edu-school">Lovely Professional University, Phagwara, Punjab</p>
+          <div class="edu-details">
+            <span class="edu-score">CGPA: 8.33</span>
+            <span>Expected Graduation: Aug 2026</span>
+          </div>
+        </div>
+
+        <div class="glass-card edu-card fade-in">
+          <p class="edu-degree">12th (CBSE)</p>
+          <p class="edu-school">D.A.V Public School, Bhubaneswar, Odisha</p>
+          <div class="edu-details">
+            <span class="edu-score">Percentage: 74%</span>
+            <span>Apr 2024 – Mar 2025</span>
+          </div>
+        </div>
+
+        <div class="glass-card edu-card fade-in">
+          <p class="edu-degree">10th (CBSE)</p>
+          <p class="edu-school">D.A.V Public School, Bhubaneswar, Odisha</p>
+          <div class="edu-details">
+            <span class="edu-score">Percentage: 89.2%</span>
+            <span>Apr 2022 – Mar 2023</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER / CONTACT
+       ============================================================ -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="neon-section-title-wrapper fade-in">
+        <div class="neon-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <h2>GET IN TOUCH</h2>
+        </div>
+      </div>
+      <div class="footer-social fade-in">
+        <!-- Email -->
+        <a href="mailto:avineshdhal2006@gmail.com" aria-label="Email" title="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/Avinesh9" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/avinesh-dhal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+      <p class="footer-tagline fade-in">Always open to interesting conversations and collaboration.</p>
+      <p class="footer-copy fade-in">&copy; 2026 Avinesh Dhal. Built with vanilla HTML, CSS &amp; JS.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       RESUME MODAL
+       ============================================================ -->
+  <div class="resume-modal-overlay" id="resume-modal" aria-hidden="true">
+    <div class="resume-modal-content">
+      <div class="resume-modal-header">
+        <h2>Resume</h2>
+        <div class="resume-actions">
+          <a href="Avinesh_port.docx" download class="btn-pill download-btn">Download .docx</a>
+          <button class="close-resume-btn" id="close-resume-btn" aria-label="Close modal">&times;</button>
+        </div>
+      </div>
+      <div class="resume-modal-body" id="resume-content">
+        <h1 style="text-align:center; font-family:var(--font-display); font-size:2.5rem; margin-bottom: 0.5rem; color:#fff;">Avinesh Dhal</h1>
+        <p style="text-align:center; color:#aaa; margin-bottom: 2rem;">
+          avineshdhal2006@gmail.com | +91-8093713400 | <a href="https://github.com/Avinesh9" style="color:var(--accent-start); text-decoration:none;">GitHub</a> | <a href="https://www.linkedin.com/in/avinesh-dhal" style="color:var(--accent-start); text-decoration:none;">LinkedIn</a>
+        </p>
+        
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-top:1.5rem; font-size: 1.2rem; color: #a072ff; font-family: var(--font-mono);">SKILLS SUMMARY</h2>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom:0.5rem"><strong style="color:#fff;">Languages:</strong> C, C++, Python, HTML, CSS, JavaScript</li>
+          <li style="margin-bottom:0.5rem"><strong style="color:#fff;">Tools/Platforms:</strong> VS Code, Git, GitHub, Google Colab, Jupyter Notebook, Eclipse IDE</li>
+          <li style="margin-bottom:0.5rem"><strong style="color:#fff;">Backend:</strong> MySQL, PostgreSQL</li>
+          <li style="margin-bottom:0.5rem"><strong style="color:#fff;">Soft Skills:</strong> Team Collaboration, Problem-Solving, Adaptability, Communication, Critical thinking, Event Management</li>
+        </ul>
+
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-top:2rem; font-size: 1.2rem; color: #a072ff; font-family: var(--font-mono);">PROJECTS</h2>
+        <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem;">Smart Weather &amp; Soil Monitoring System</h3>
+        <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin-bottom: 0.5rem;">Sep 2025 - Nov 2025 | ESP32, C++, IoT, Sensors</p>
+        <ul style="margin-bottom: 1.5rem;">
+          <li>Engineered an autonomous IoT-based environmental monitoring station using an ESP32 microcontroller and custom C++ firmware to capture multi-sensor telemetry (soil moisture, ambient temperature, and sunlight intensity).</li>
+          <li>Designed an analog-to-digital sensor interface with calibrated voltage dividers and I2C communication protocols, ensuring continuous data acquisition with under 50ms latency.</li>
+          <li>Implemented Wi-Fi-based telemetry streaming over lightweight MQTT/HTTP protocols with local failover buffering, enabling real-time micro-climate tracking and automated threshold alerts.</li>
+        </ul>
+
+        <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem; margin-top:1.5rem;">Personal Developer Portfolio Platform</h3>
+        <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin-bottom: 0.5rem;">Jun 2026 - Aug 2026 | JavaScript (ES6+), HTML5, Vercel</p>
+        <ul style="margin-bottom: 1.5rem;">
+          <li>Architected a high-performance, fully responsive personal web portfolio using Vanilla JavaScript (ES6+) and modern CSS3, achieving a 100% Google Lighthouse performance and accessibility score.</li>
+          <li>Engineered a dynamic 5-color theme engine with custom CSS custom properties and localStorage persistence, alongside interactive glassmorphism UI components and smooth asynchronous DOM animations.</li>
+          <li>Implemented a real-time validated contact communication system with client-side input sanitization, 1-click clipboard integration, and automated continuous deployment via Vercel CI/CD.</li>
+        </ul>
+
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-top:2rem; font-size: 1.2rem; color: #a072ff; font-family: var(--font-mono);">TRAINING</h2>
+        <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem;">Marketing Intern - Corizo Edutech Pvt. Ltd.</h3>
+        <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin-bottom: 0.5rem;">Aug 2025 - Sep 2025</p>
+        <ul>
+          <li>Gained practical exposure to marketing activities and professional workplace practices through a one-month internship.</li>
+          <li>Developed understanding of marketing processes, communication, and professional collaboration while contributing as a Marketing Intern.</li>
+          <li>Demonstrated active participation and commitment toward assigned marketing activities, contributing to the successful completion of the internship.</li>
+        </ul>
+
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-top:2rem; font-size: 1.2rem; color: #a072ff; font-family: var(--font-mono);">EXTRACURRICULAR</h2>
+        <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem;">Student Career Committee (SCC) | Event Management Team</h3>
+        <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin-bottom: 0.5rem;">Aug 2025 - Dec 2025</p>
+        <ul>
+          <li>Contributed to the planning, coordination, and successful execution of 5+ college events, including Techfluence 4.0, Techfluence 5.0, and Mehfil-e-Mushaira.</li>
+          <li>Collaborated with team members to manage event logistics, coordination, and on-ground execution, ensuring smooth and successful events.</li>
+          <li>Developed strong skills in event management, teamwork, communication, leadership, problem-solving, and time management.</li>
+        </ul>
+
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-top:2rem; font-size: 1.2rem; color: #a072ff; font-family: var(--font-mono);">CERTIFICATES</h2>
+        <ul style="margin-bottom: 1.5rem;">
+          <li>Build Storm: A 12 Hours Hackathon — Play2Unite (Oct 2025)</li>
+          <li>Cloud Computing and its applications - Coursera (Jul 2026)</li>
+          <li>Introduction to AI: A 30 hours Mooc - Infosys Springboard (Feb 2026)</li>
+        </ul>
+
+        <h2 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-top:2rem; font-size: 1.2rem; color: #a072ff; font-family: var(--font-mono);">EDUCATION</h2>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 1.5rem;">
+          <div>
+            <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem;">Lovely Professional University</h3>
+            <p style="color:#ccc; margin:0;">Bachelor of Technology - Computer Science and Engineering</p>
+          </div>
+          <div style="text-align:right;">
+            <p style="color:#fff; margin:0;">Phagwara, Punjab</p>
+            <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin:0;">Aug 2026 | CGPA: 8.33</p>
+          </div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 1.5rem;">
+          <div>
+            <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem;">D.A.V Public School</h3>
+            <p style="color:#ccc; margin:0;">12th Standard</p>
+          </div>
+          <div style="text-align:right;">
+            <p style="color:#fff; margin:0;">Bhubaneswar, Odisha</p>
+            <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin:0;">Apr 2024 – Mar 2025 | 74%</p>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 1.5rem;">
+          <div>
+            <h3 style="color:#fff; margin-bottom:0.2rem; font-size:1.1rem;">D.A.V Public School</h3>
+            <p style="color:#ccc; margin:0;">10th Standard</p>
+          </div>
+          <div style="text-align:right;">
+            <p style="color:#fff; margin:0;">Bhubaneswar, Odisha</p>
+            <p style="color:#aaa; font-family:var(--font-mono); font-size:0.85rem; margin:0;">Apr 2022 – Mar 2023 | 89.2%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
